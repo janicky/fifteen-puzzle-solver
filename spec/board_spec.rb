@@ -19,4 +19,11 @@ RSpec.describe "Board" do
     expect(@board.at_position(1, 0)).to eq(4)
     expect(@board.at_position(2, 1)).to eq(0)
   end
+
+  it "get element position by value" do
+    expect(@board.get_position(1)).to eq(x: 0, y: 0)
+    expect(@board.get_position(5)).to eq(x: 1, y: 1)
+    expect(@board.get_position(8)).to eq(x: 2, y: 2)
+    expect(@board.get_position(6)).to eq(x: 2, y: 1)
+  end
 end
