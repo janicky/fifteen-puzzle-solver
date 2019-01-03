@@ -48,7 +48,7 @@ class FifteenPuzzleSolver::Board
 
   # Check range exceeding
   def can_move?(x, y, dx, dy)
-    x + dx >= 0 && y + dy >= 0 && x + dx <= @width && y + dy <= @height
+    x + dx >= 0 && y + dy >= 0 && x + dx < @width && y + dy < @height
   end
 
   # Move element by x and y difference
