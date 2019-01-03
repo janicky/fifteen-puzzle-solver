@@ -39,8 +39,13 @@ class FifteenPuzzleSolver::Board
   end
 
   # Move element by x and y difference
-  # def move_element(dx, dy)
-  #   position = get_position(0)
-  #   @blocks
-  # end
+  def move_element(dx, dy)
+    position = get_position(0)
+    element_index = get_index(position[:x] + dx, position[:y] + dy)
+
+    unless element_index == nil
+      zero_index = get_index(position[:x], position[:y])
+      @blocks[zero_index], @blocks[element_index] = @blocks[element_index], @blocks[zero_index]
+    end
+  end
 end
