@@ -7,8 +7,8 @@ class FifteenPuzzleSolver::Board
   # Calculate dimensions
   def dimensions
     {
-      width: width,
-      height: blocks.count / width,
+      width: @width,
+      height: @blocks.count / @width,
     }
   end
 end
