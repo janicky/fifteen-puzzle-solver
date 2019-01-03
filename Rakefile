@@ -1,8 +1,11 @@
 require "rake/testtask"
 
-Rake::TestTask.new do |t|
-  t.libs << "test"
-end
+begin
+  require "rspec/core/rake_task"
 
-desc "Run tests"
-task default: :test
+  RSpec::Core::RakeTask.new(:spec)
+
+  desc "Run tests"
+  task default: :spec
+rescue LoadError
+end
