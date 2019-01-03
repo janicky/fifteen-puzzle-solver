@@ -81,7 +81,7 @@ class FifteenPuzzleSolver::Board
     position = get_position(0)
     element_index = get_index(position[:x] + dx, position[:y] + dy)
 
-    if element_index > 0 && can_move?(position[:x], position[:y], dx, dy)
+    if element_index >= 0 && can_move?(position[:x], position[:y], dx, dy)
       zero_index = get_index(position[:x], position[:y])
       @blocks[zero_index], @blocks[element_index] = @blocks[element_index], @blocks[zero_index]
     end
