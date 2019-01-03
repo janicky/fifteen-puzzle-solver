@@ -3,4 +3,12 @@ class FifteenPuzzleSolver::Board
     @blocks = blocks
     @width = width
   end
+
+  # Calculate dimensions
+  def dimensions
+    {
+      width: width,
+      height: blocks.count / width,
+    }
+  end
 end
