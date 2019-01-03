@@ -50,4 +50,11 @@ RSpec.describe "Board" do
     @board.move("left")
     expect(@board.at_position(0, 2)).to eq(0)
   end
+
+  it "check if the board is valid" do
+    expect(@board.valid?).to be_falsey
+
+    valid_board = FifteenPuzzleSolver::Board.new([*1..8] + [0], 3)
+    expect(valid_board.valid?).to be_truthy
+  end
 end

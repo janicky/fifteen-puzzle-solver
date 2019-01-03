@@ -39,6 +39,19 @@ class FifteenPuzzleSolver::Board
     end
   end
 
+  # Check if the board is valid
+  def valid?
+    return false unless @blocks.last == 0
+
+    iterator = 1
+    @blocks.each do |block|
+      return false if block != iterator && block != 0
+
+      iterator += 1
+    end
+    true
+  end
+
   private
 
   # Get index by position
