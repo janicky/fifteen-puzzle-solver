@@ -52,6 +52,18 @@ class FifteenPuzzleSolver::Board
     true
   end
 
+  # Display board in output
+  def display
+    output = ""
+    @width.times do |y|
+      @height.times do |x|
+        output << at_position(x, y).to_s.center(5)
+      end
+      output << "\n"
+    end
+    output
+  end
+
   private
 
   # Get index by position
