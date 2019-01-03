@@ -9,7 +9,10 @@ class FifteenPuzzleSolver::Board
 
   # Get element value at position
   def at_position(x, y)
-    @blocks[@width * x + y]
+    index = @width * x + y
+    return nil if index < 0
+
+    @blocks[index]
   end
 
   # Get element position with specified value
