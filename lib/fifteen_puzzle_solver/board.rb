@@ -10,7 +10,7 @@ class FifteenPuzzleSolver::Board
   # Get element value at position
   def at_position(x, y)
     index = get_index(x, y)
-    return nil if index == nil
+    return nil if index < 0
 
     @blocks[index]
   end
@@ -43,10 +43,12 @@ class FifteenPuzzleSolver::Board
 
   # Get index by position
   def get_index(x, y)
-    index = @height * y + x
-    return nil if index < 0
+    @height * y + x
+  end
 
-    index
+  # Check range exceeding
+  def can_move?(x, y, dx, dy)
+    x + dx >= 0 && y + dy >= 0 && x + dx <= @width && y + dy <= @height
   end
 
   # Move element by x and y difference
@@ -54,7 +56,7 @@ class FifteenPuzzleSolver::Board
     position = get_position(0)
     element_index = get_index(position[:x] + dx, position[:y] + dy)
 
-    unless @blocks[element_index] == nil
+    if element_index > 0 && can_move?(position[:x], position[:y], dx, dy)
       zero_index = get_index(position[:x], position[:y])
       @blocks[zero_index], @blocks[element_index] = @blocks[element_index], @blocks[zero_index]
     end
