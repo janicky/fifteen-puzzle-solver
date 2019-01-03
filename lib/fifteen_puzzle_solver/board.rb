@@ -24,9 +24,20 @@ class FifteenPuzzleSolver::Board
   end
 
   # Move zero-value element
-  # def move(direction)
-
-  # end
+  def move(direction)
+    case direction
+    when "u", "U", "up"
+      move_element(0, 1)
+    when "d", "D", "down"
+      move_element(0, -1)
+    when "l", "L", "left"
+      move_element(1, 0)
+    when "r", "R", "right"
+      move_element(-1, 0)
+    else
+      Exception.new("Invalid direction")
+    end
+  end
 
   private
 
