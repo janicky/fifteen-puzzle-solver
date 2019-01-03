@@ -16,8 +16,9 @@ RSpec.describe "Board" do
 
   it "get element at position" do
     expect(@board.at_position(0, 0)).to eq(1)
-    expect(@board.at_position(1, 0)).to eq(4)
-    expect(@board.at_position(2, 1)).to eq(0)
+    expect(@board.at_position(1, 0)).to eq(2)
+    expect(@board.at_position(2, 1)).to eq(6)
+    expect(@board.at_position(1, 2)).to eq(0)
     expect(@board.at_position(-1, -1)).to be_nil
     expect(@board.at_position(5, 5)).to be_nil
   end
@@ -28,4 +29,10 @@ RSpec.describe "Board" do
     expect(@board.get_position(8)).to eq(x: 2, y: 2)
     expect(@board.get_position(6)).to eq(x: 2, y: 1)
   end
+
+  # it "move element in specified direction" do
+  #   expect(@board.at_position(2, 1)).to eq(0)
+  #   @board.move("left")
+  #   expect(@board.at_position(2, 1)).to eq(0)
+  # end
 end
