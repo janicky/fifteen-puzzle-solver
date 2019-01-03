@@ -30,9 +30,24 @@ RSpec.describe "Board" do
     expect(@board.get_position(6)).to eq(x: 2, y: 1)
   end
 
-  # it "move element in specified direction" do
-  #   expect(@board.at_position(2, 1)).to eq(0)
+  it "move element in specified direction (up)" do
+    expect(@board.at_position(1, 1)).to eq(5)
+    expect(@board.at_position(1, 2)).to eq(0)
+    @board.move("up")
+    expect(@board.at_position(1, 1)).to eq(0)
+    expect(@board.at_position(1, 2)).to eq(5)
+  end
+
+  it "move element in specified direction (down)" do
+    expect(@board.at_position(1, 2)).to eq(0)
+    @board.move("down")
+    expect(@board.at_position(1, 2)).to eq(0)
+  end
+
+  # it "move element in specified direction (left)" do
+  #   expect(@board.at_position(1, 2)).to eq(0)
   #   @board.move("left")
-  #   expect(@board.at_position(2, 1)).to eq(0)
+  #   @board.move("left")
+  #   expect(@board.at_position(0, 2)).to eq(0)
   # end
 end
