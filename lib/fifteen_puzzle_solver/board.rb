@@ -46,18 +46,19 @@ class FifteenPuzzleSolver::Board
   end
 
   # Return neighbors for board element
-  def neighbors(value, order)
+  def neighbors(parent, order)
     unless !!(/^[udlr]+$/is =~ order)
       raise Exception.new("Invalid order (only up, down, left or right)")
     end
 
     neighbors = []
-    position = get_position(value)
+    position = get_position(0)
     order.each_char do |direction|
       delta = direction_delta(direction)
       if can_move?(position[:x], position[:y], delta[:dx], delta[:dy])
-        neighbor = at_position(position[:x] + delta[:dx], position[:y] + delta[:dy])
-        neighbors << neighbor unless neighbor == nil
+        board = FifteenPuzzleSolver::Board.new(@blocks.dup, @width)
+        board.move(direction)
+        neighbors << FifteenPuzzleSolver::Node.new(parent, board)
       end
     end
     neighbors

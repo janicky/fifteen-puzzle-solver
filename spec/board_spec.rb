@@ -1,5 +1,6 @@
 require "fifteen_puzzle_solver"
 require_relative "../lib/fifteen_puzzle_solver/board"
+require_relative "../lib/fifteen_puzzle_solver/node"
 
 RSpec.describe "Board" do
   before do
@@ -59,9 +60,6 @@ RSpec.describe "Board" do
   end
 
   it "returns valid neighbors array" do
-    neighbors = @board.neighbors(0, "RDUL")
-    expect(neighbors[0]).to be(8)
-    expect(neighbors[1]).to be(5)
-    expect(neighbors[2]).to be(7)
+    @board.neighbors(FifteenPuzzleSolver::Node.new(nil, @board), "RDUL")
   end
 end
