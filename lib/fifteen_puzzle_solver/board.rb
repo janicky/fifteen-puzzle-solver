@@ -1,10 +1,13 @@
+require "digest/md5"
+
 class FifteenPuzzleSolver::Board
-  attr_reader :width, :height
+  attr_reader :width, :height, :hashcode
 
   def initialize(blocks, width)
     @blocks = blocks
     @width = width
     @height = @blocks.count / width
+    update_hashcode
   end
 
   # Get element value at position
@@ -74,6 +77,15 @@ class FifteenPuzzleSolver::Board
 
   private
 
+  # Update hashcode
+  def update_hashcode
+    code = ""
+    @blocks.each_with_index do |key, value|
+      code << "/#{key}-#{value}/"
+    end
+    @hashcode = Digest::SHA256.hexdigest(code)
+  end
+
   # Translate direction to delta
   def direction_delta(direction)
     case direction
@@ -108,6 +120,7 @@ class FifteenPuzzleSolver::Board
     if element_index >= 0 && can_move?(position[:x], position[:y], dx, dy)
       zero_index = get_index(position[:x], position[:y])
       @blocks[zero_index], @blocks[element_index] = @blocks[element_index], @blocks[zero_index]
+      update_hashcode
     end
   end
 end
