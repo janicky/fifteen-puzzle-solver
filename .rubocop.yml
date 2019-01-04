@@ -493,7 +493,7 @@ Metrics/AbcSize:
   Description: A calculated magnitude based on number of assignments, branches, and
     conditions.
   Enabled: true
-  Max: 20
+  Max: 25
 Metrics/BlockLength:
   CountComments: false
   Max: 25
