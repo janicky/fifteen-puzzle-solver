@@ -4,7 +4,7 @@ class FifteenPuzzleSolver::Node
     @board = board
   end
 
-  def hashcode
-    @board.hashcode
+  def state
+    @board.state
   end
 end
