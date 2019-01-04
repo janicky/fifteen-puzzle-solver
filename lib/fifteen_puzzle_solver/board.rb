@@ -52,8 +52,10 @@ class FifteenPuzzleSolver::Board
     position = get_position(value)
     order.each_char do |direction|
       delta = direction_delta(direction)
-      neighbor = at_position(position[:x] + delta[:dx], position[:y] + delta[:dy])
-      neighbors << neighbor unless neighbor == nil
+      if can_move?(position[:x], position[:y], delta[:dx], delta[:dy])
+        neighbor = at_position(position[:x] + delta[:dx], position[:y] + delta[:dy])
+        neighbors << neighbor unless neighbor == nil
+      end
     end
     neighbors
   end
