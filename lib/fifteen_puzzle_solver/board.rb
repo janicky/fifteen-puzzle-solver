@@ -62,7 +62,7 @@ class FifteenPuzzleSolver::Board
       if can_move?(position[:x], position[:y], delta[:dx], delta[:dy])
         board = FifteenPuzzleSolver::Board.new(@blocks.dup, @width)
         board.move(direction)
-        neighbors << FifteenPuzzleSolver::Node.new(parent, self)
+        neighbors << FifteenPuzzleSolver::Node.new(parent, board)
       end
     end
     neighbors

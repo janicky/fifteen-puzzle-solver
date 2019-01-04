@@ -1,4 +1,6 @@
 class FifteenPuzzleSolver::Node
+  attr_reader :board
+
   def initialize(parent, board)
     @parent = parent
     @board = board
