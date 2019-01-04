@@ -60,6 +60,9 @@ RSpec.describe "Board" do
   end
 
   it "returns valid neighbors array" do
-    @board.neighbors(FifteenPuzzleSolver::Node.new(nil, @board), "RDUL")
+    neighbors = @board.neighbors(FifteenPuzzleSolver::Node.new(nil, @board), "RDUL")
+    expect(neighbors[0].state).to eq("123456780")
+    expect(neighbors[1].state).to eq("123406758")
+    expect(neighbors[2].state).to eq("123456078")
   end
 end
