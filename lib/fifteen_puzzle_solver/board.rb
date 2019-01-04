@@ -25,18 +25,8 @@ class FifteenPuzzleSolver::Board
 
   # Move zero-value element
   def move(direction)
-    case direction
-    when "u", "U", "up"
-      move_element(0, -1)
-    when "d", "D", "down"
-      move_element(0, 1)
-    when "l", "L", "left"
-      move_element(-1, 0)
-    when "r", "R", "right"
-      move_element(1, 0)
-    else
-      raise Exception.new("Invalid direction (only up, down, left or right)")
-    end
+    delta = direction_delta(direction)
+    move_element(delta[:dx], delta[:dy])
   end
 
   # Check if the board is valid
@@ -52,6 +42,22 @@ class FifteenPuzzleSolver::Board
     true
   end
 
+  # Return neighbors for board element
+  def neighbors(value, order)
+    unless !!(/^[udlr]+$/is =~ order)
+      raise Exception.new("Invalid order (only up, down, left or right)")
+    end
+
+    neighbors = []
+    position = get_position(value)
+    order.each_char do |direction|
+      delta = direction_delta(direction)
+      neighbor = at_position(position[:x] + delta[:dx], position[:y] + delta[:dy])
+      neighbors << neighbor unless neighbor == nil
+    end
+    neighbors
+  end
+
   # Display board in output
   def display
     output = ""
@@ -65,6 +71,22 @@ class FifteenPuzzleSolver::Board
   end
 
   private
+
+  # Translate direction to delta
+  def direction_delta(direction)
+    case direction
+    when "u", "U", "up"
+      return { dx: 0, dy: -1 }
+    when "d", "D", "down"
+      return { dx: 0, dy: 1 }
+    when "l", "L", "left"
+      return { dx: -1, dy: 0 }
+    when "r", "R", "right"
+      return { dx: 1, dy: 0 }
+    else
+      raise Exception.new("Invalid direction (only up, down, left or right)")
+    end
+  end
 
   # Get index by position
   def get_index(x, y)
