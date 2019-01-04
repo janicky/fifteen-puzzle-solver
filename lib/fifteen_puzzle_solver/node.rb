@@ -1,0 +1,2 @@
+class FifteenPuzzleSolver::Node
+end
