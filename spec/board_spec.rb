@@ -57,4 +57,11 @@ RSpec.describe "Board" do
     valid_board = FifteenPuzzleSolver::Board.new([*1..8] + [0], 3)
     expect(valid_board.valid?).to be_truthy
   end
+
+  it "returns valid neighbors array" do
+    neighbors = @board.neighbors(0, "RDUL")
+    expect(neighbors[0]).to be(8)
+    expect(neighbors[1]).to be(5)
+    expect(neighbors[2]).to be(7)
+  end
 end
