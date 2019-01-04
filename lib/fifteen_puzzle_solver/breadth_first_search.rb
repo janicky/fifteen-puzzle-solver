@@ -14,7 +14,7 @@ class FifteenPuzzleSolver::BreadthFirstSearch
       node = frontier.pop
       system "clear"
       puts "\n#{node.board.display}\n"
-      puts "#{i}: #{frontier.length} - #{explored.count}"
+      puts "#{i}: #{frontier.length} - #{explored.count} [#{node.depth}]"
 
       if node.board.valid?
         puts "Solved!"
