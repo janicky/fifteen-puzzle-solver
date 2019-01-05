@@ -1,5 +1,5 @@
 class FifteenPuzzleSolver::Algorithm
-  attr_reader :status, :depth, :solution, :elapsed_time, :visited_nodes, :explored_nodes
+  attr_reader :status, :depth, :solution, :elapsed_time, :visited_nodes, :processed_nodes
 
   def initialize(board, order)
     @board = board
@@ -16,8 +16,8 @@ class FifteenPuzzleSolver::Algorithm
   def save
     @elapsed_time = clock_time - @start_time
     @status = "failed" unless @status == "solved"
-    @visited_nodes = @frontier.length
-    @explored_nodes = @explored.count
+    @visited_nodes = @explored.count
+    @processed_nodes = @frontier.length
     @frontier.close
   end
 

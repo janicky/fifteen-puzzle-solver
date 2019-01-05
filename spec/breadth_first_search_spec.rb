@@ -27,8 +27,8 @@ RSpec.describe "BreadthFirstSearch" do
     expect(@bfs.elapsed_time).to be_within(0.0002).of(0.0001)
   end
 
-  it "returns visited nodes and explored nodes" do
-    expect(@bfs.visited_nodes).to be(12)
-    expect(@bfs.explored_nodes).to be(8)
+  it "returns visited nodes and processed nodes" do
+    expect(@bfs.visited_nodes).to be(8)
+    expect(@bfs.processed_nodes).to be(12)
   end
 end
