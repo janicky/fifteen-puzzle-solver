@@ -11,4 +11,10 @@ class FifteenPuzzleSolver::Node
   def state
     @board.state
   end
+
+  def path
+    return "" unless @parent
+
+    @parent.path + @direction
+  end
 end
