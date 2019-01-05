@@ -10,4 +10,8 @@ RSpec.describe "BreadthFirstSearch" do
     @dfs = FifteenPuzzleSolver::DepthFirstSearch.new(@board, "rdul")
     @dfs.perform
   end
+
+  it "correctly solve specified board" do
+    expect(@dfs.status).to eq("solved")
+  end
 end
