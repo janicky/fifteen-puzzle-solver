@@ -18,6 +18,15 @@ class FifteenPuzzleSolver::Node
     @parent.path + @direction
   end
 
+  def astar_function(heuristic)
+    case heuristic
+    when "manh"
+      weight + @board.invalid_blocks_distance
+    else
+      1
+    end
+  end
+
   private
 
   def weight
