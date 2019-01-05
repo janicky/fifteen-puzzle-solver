@@ -4,13 +4,22 @@ require_relative "../lib/fifteen_puzzle_solver/breadth_first_search"
 RSpec.describe "BreadthFirstSearch" do
   before do
     # 1 2 3
-    # 4 5 6
-    # 7 0 8
-    @board = FifteenPuzzleSolver::Board.new([9, 8, 3, 2, 11, 10, 12, 7, 13, 14, 4, 6, 15, 5, 0, 1], 4)
+    # 4 0 6
+    # 7 5 8
+    @board = FifteenPuzzleSolver::Board.new([1, 2, 3, 4, 0, 6, 7, 5, 8], 3)
     @bfs = FifteenPuzzleSolver::BreadthFirstSearch.new(@board, "rdul")
+    @bfs.solve
   end
 
-  it "solve puzzle" do
-    @bfs.solve
+  it "correctly solve specified board" do
+    expect(@bfs.status).to eq("solved")
+  end
+
+  it "returns correct solution path" do
+    expect(@bfs.solution).to eq("dr")
+  end
+
+  it "returns correct recursion depth" do
+    expect(@bfs.depth).to eq(2)
   end
 end

@@ -12,6 +12,7 @@ class FifteenPuzzleSolver::BreadthFirstSearch < FifteenPuzzleSolver::Algorithm
       @depth = node.depth
 
       if node.board.valid?
+        @solution = node.path
         @status = "solved"
         break
       end
