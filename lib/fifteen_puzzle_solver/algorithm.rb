@@ -16,6 +16,7 @@ class FifteenPuzzleSolver::Algorithm
   def save
     @elapsed = clock_time - @start_time
     @status = "failed" unless @status == "solved"
+    @frontier.close
   end
 
   private
