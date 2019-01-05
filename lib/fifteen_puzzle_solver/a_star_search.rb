@@ -18,15 +18,8 @@ class FifteenPuzzleSolver::AStarSearch < FifteenPuzzleSolver::Algorithm
 
       neighbors = node.board.neighbors(node, "udlr")
       heuristic_sort(@acronym, neighbors)
+      add_to_frontier(node, neighbors)
 
-      neighbors.reverse_each do |neighbor|
-        next if @explored.include?(node.state)
-        unless @frontier.&last.astar_function < node.astar_function
-          @frontier << neighbor
-        else 
-          @frontier.insert(0, neighbor)
-        end
-      end
       @explored << node.state
     end
     save
@@ -36,5 +29,17 @@ class FifteenPuzzleSolver::AStarSearch < FifteenPuzzleSolver::Algorithm
 
   def heuristic_sort(heuristic, nodes)
     nodes.sort! { |a, b| a.astar_function(heuristic) <=> b.astar_function(heuristic) }
+  end
+
+  def add_to_frontier(parent, nodes)
+    nodes.reverse_each do |node|
+      next if @explored.include?(parent.state)
+
+      if @frontier.any? && @frontier.last.astar_function(@acronym) < parent.astar_function(@acronym)
+        @frontier.insert(0, node)
+      else
+        @frontier << node
+      end
+    end
   end
 end
