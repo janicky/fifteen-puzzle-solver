@@ -20,7 +20,12 @@ class FifteenPuzzleSolver::AStarSearch < FifteenPuzzleSolver::Algorithm
       heuristic_sort(@acronym, neighbors)
 
       neighbors.reverse_each do |neighbor|
-        @frontier << neighbor unless @explored.include?(node.state)
+        next if @explored.include?(node.state)
+        unless @frontier.&last.astar_function < node.astar_function
+          @frontier << neighbor
+        else 
+          @frontier.insert(0, neighbor)
+        end
       end
       @explored << node.state
     end
