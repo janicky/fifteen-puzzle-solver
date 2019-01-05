@@ -80,6 +80,11 @@ class FifteenPuzzleSolver::Board
     output
   end
 
+  # Return invalid blocks distance
+  # def invalid_blocks_distance
+  #   distance = (@blocks.last == 0 ? 0 : distance(0))
+  # end
+
   private
 
   # Update state
@@ -132,5 +137,12 @@ class FifteenPuzzleSolver::Board
       x: (value - 1) % @width,
       y: (value - 1) / @height,
     }
+  end
+
+  # Return distance between two blocks
+  def distance(value)
+    block1 = get_position(value)
+    block2 = valid_position_for(value)
+    (block1[:x] - block2[:x]).abs + (block1[:y] - block2[:y]).abs
   end
 end
