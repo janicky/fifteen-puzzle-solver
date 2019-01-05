@@ -25,6 +25,10 @@ RSpec.describe "BreadthFirstSearch" do
 
   it "returns correct elapsed time" do
     expect(@dfs.elapsed_time).not_to eq(0)
-    puts @dfs.elapsed_time
+  end
+
+  it "returns visited nodes and processed nodes" do
+    expect(@dfs.visited_nodes).to be(14)
+    expect(@dfs.processed_nodes).to be(17)
   end
 end
