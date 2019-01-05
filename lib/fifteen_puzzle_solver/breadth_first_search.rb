@@ -23,5 +23,6 @@ class FifteenPuzzleSolver::BreadthFirstSearch < FifteenPuzzleSolver::Algorithm
       @explored << node.state
     end
     save
+    @frontier.close
   end
 end
