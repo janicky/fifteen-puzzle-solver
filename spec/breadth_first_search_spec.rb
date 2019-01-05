@@ -8,7 +8,7 @@ RSpec.describe "BreadthFirstSearch" do
     # 7 5 8
     @board = FifteenPuzzleSolver::Board.new([1, 2, 3, 4, 0, 6, 7, 5, 8], 3)
     @bfs = FifteenPuzzleSolver::BreadthFirstSearch.new(@board, "rdul")
-    @bfs.solve
+    @bfs.perform
   end
 
   it "correctly solve specified board" do

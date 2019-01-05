@@ -1,7 +1,7 @@
 require_relative "algorithm.rb"
 
 class FifteenPuzzleSolver::BreadthFirstSearch < FifteenPuzzleSolver::Algorithm
-  def solve
+  def perform
     @frontier = Queue.new
     @frontier.push(FifteenPuzzleSolver::Node.new(nil, @board, nil))
     @explored = []
