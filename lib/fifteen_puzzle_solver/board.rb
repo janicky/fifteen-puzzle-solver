@@ -80,6 +80,16 @@ class FifteenPuzzleSolver::Board
     output
   end
 
+  # Return valid position for value
+  def valid_position_for(value)
+    return { x: @width - 1, y: @height - 1 } if value == 0
+
+    {
+      x: (value - 1) % @width,
+      y: (value - 1) / @height,
+    }
+  end
+
   private
 
   # Update state
