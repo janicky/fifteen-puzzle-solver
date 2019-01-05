@@ -22,4 +22,8 @@ RSpec.describe "BreadthFirstSearch" do
   it "returns correct recursion depth" do
     expect(@bfs.depth).to eq(2)
   end
+
+  it "returns correct elapsed time" do
+    expect(@bfs.elapsed).to be_within(0.0002).of(0.0001)
+  end
 end
