@@ -17,8 +17,6 @@ class FifteenPuzzleSolver::BreadthFirstSearch < FifteenPuzzleSolver::Algorithm
         break
       end
 
-      next if node.depth > 7
-
       node.board.neighbors(node, @order).each do |neighbor|
         @frontier.push(neighbor) unless @explored.include?(node.state)
       end
