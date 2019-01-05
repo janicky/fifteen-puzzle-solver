@@ -17,4 +17,10 @@ class FifteenPuzzleSolver::Node
 
     @parent.path + @direction
   end
+
+  private
+
+  def weight
+    path.length
+  end
 end
