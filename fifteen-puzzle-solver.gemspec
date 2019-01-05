@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.files       =
     [
       "lib/fifteen_puzzle_solver.rb",
-      "lib/fifteen_puzzle_solver/board.rb"
+      "lib/fifteen_puzzle_solver/board.rb",
     ]
   s.homepage    =
     "https://github.com/janicky/fifteen-puzzle-solver"
