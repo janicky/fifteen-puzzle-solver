@@ -82,7 +82,7 @@ class FifteenPuzzleSolver::Board
 
   # Return invalid blocks distance
   def invalid_blocks_distance
-    distance = @blocks.last == 0 ? 0 : distance(0)
+    distance = 0
 
     iterator = 1
     @blocks.each do |block|

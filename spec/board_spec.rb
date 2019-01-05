@@ -65,4 +65,10 @@ RSpec.describe "Board" do
     expect(neighbors[1].state).to eq("123406758")
     expect(neighbors[2].state).to eq("123456078")
   end
+
+  it "returns invalid blocks distance" do
+    expect(@board.invalid_blocks_distance).to be(1)
+    @board.move("left")
+    expect(@board.invalid_blocks_distance).to be(2)
+  end
 end
