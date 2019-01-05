@@ -1,9 +1,9 @@
 class FifteenPuzzleSolver::Algorithm
   attr_reader :status, :depth, :solution, :elapsed_time, :visited_nodes, :processed_nodes
 
-  def initialize(board, order)
+  def initialize(board, acronym)
     @board = board
-    @order = order
+    @acronym = acronym
     @status = "ready"
   end
 

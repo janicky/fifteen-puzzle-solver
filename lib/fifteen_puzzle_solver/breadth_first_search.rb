@@ -17,7 +17,7 @@ class FifteenPuzzleSolver::BreadthFirstSearch < FifteenPuzzleSolver::Algorithm
         break
       end
 
-      node.board.neighbors(node, @order).each do |neighbor|
+      node.board.neighbors(node, @acronym).each do |neighbor|
         @frontier.push(neighbor) unless @explored.include?(node.state)
       end
       @explored << node.state
