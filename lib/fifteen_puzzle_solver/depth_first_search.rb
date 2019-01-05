@@ -13,6 +13,7 @@ class FifteenPuzzleSolver::DepthFirstSearch < FifteenPuzzleSolver::Algorithm
       if node.board.valid?
         @solution = node.path
         @status = "solved"
+        break
       end
 
       next if @depth > 20

@@ -14,4 +14,17 @@ RSpec.describe "BreadthFirstSearch" do
   it "correctly solve specified board" do
     expect(@dfs.status).to eq("solved")
   end
+
+  it "returns correct solution path" do
+    expect(@dfs.solution).to eq("rdlurdlurd")
+  end
+
+  it "returns correct recursion depth" do
+    expect(@dfs.depth).to eq(10)
+  end
+
+  it "returns correct elapsed time" do
+    expect(@dfs.elapsed_time).not_to eq(0)
+    puts @dfs.elapsed_time
+  end
 end

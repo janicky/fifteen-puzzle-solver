@@ -24,7 +24,7 @@ RSpec.describe "BreadthFirstSearch" do
   end
 
   it "returns correct elapsed time" do
-    expect(@bfs.elapsed_time).to be_within(0.0002).of(0.0001)
+    expect(@bfs.elapsed_time).not_to eq(0)
   end
 
   it "returns visited nodes and processed nodes" do
