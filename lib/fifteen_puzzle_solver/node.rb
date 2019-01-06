@@ -22,6 +22,8 @@ class FifteenPuzzleSolver::Node
     case heuristic
     when "manh"
       weight + @board.invalid_blocks_distance
+    when "hamm"
+      
     else
       1
     end

@@ -94,6 +94,12 @@ class FifteenPuzzleSolver::Board
     distance
   end
 
+  # Return difference between blocks and valid system
+  def difference
+    valid_system = [*1..(@width * @height)] + [0]
+    (@blocks - valid_system).count
+  end
+
   private
 
   # Update state
