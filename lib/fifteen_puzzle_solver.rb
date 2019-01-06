@@ -24,7 +24,7 @@ class FifteenPuzzleSolver
     end
     # Validate blocks
     if !@blocks || @blocks.count != @width * @height
-      raise Exception.new("Invalid blocks count (expect #{@width * @height}, got #{@blocks.count})")
+      raise Exception.new("Invalid blocks count (should match to height and width)")
     end
   end
 end
