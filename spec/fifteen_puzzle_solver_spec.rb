@@ -50,4 +50,11 @@ RSpec.describe "FifteenPuzzleSolver" do
     expect { FifteenPuzzleSolver.new(params) }
       .to raise_error(Exception, "Invalid acronym for astr algorithm")
   end
+
+  it "raise exception when algorithm not perform" do
+    params = { blocks: @blocks, width: 4, height: 2, algorithm: "astr", acronym: "manh" }
+    fps = FifteenPuzzleSolver.new(params)
+    expect { fps.result }
+      .to raise_error(Exception, "First perform algorithm")
+  end
 end
