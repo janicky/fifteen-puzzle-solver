@@ -3,10 +3,10 @@ require "digest/md5"
 class FifteenPuzzleSolver::Board
   attr_reader :width, :height
 
-  def initialize(blocks, width)
+  def initialize(blocks, width, height)
     @blocks = blocks
     @width = width
-    @height = @blocks.count / width
+    @height = height
   end
 
   # Get unique identifier
@@ -60,7 +60,7 @@ class FifteenPuzzleSolver::Board
     order.each_char do |direction|
       delta = direction_delta(direction)
       if can_move?(position[:x], position[:y], delta[:dx], delta[:dy])
-        board = FifteenPuzzleSolver::Board.new(@blocks.dup, @width)
+        board = FifteenPuzzleSolver::Board.new(@blocks.dup, @width, @height)
         board.move(direction)
         neighbors << FifteenPuzzleSolver::Node.new(parent, board, direction)
       end

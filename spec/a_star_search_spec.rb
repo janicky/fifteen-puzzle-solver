@@ -6,7 +6,7 @@ RSpec.describe "AStarSearch" do
     # 2 0 3
     # 1 4 6
     # 7 5 8
-    @board = FifteenPuzzleSolver::Board.new([2, 0, 3, 1, 4, 6, 7, 5, 8], 3)
+    @board = FifteenPuzzleSolver::Board.new([2, 0, 3, 1, 4, 6, 7, 5, 8], 3, 3)
     @astr = FifteenPuzzleSolver::AStarSearch.new(@board, "manh")
     @astr.perform
   end

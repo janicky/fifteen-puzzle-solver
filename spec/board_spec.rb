@@ -7,7 +7,7 @@ RSpec.describe "Board" do
     # 1 2 3
     # 4 5 6
     # 7 0 8
-    @board = FifteenPuzzleSolver::Board.new([1, 2, 3, 4, 5, 6, 7, 0, 8], 3)
+    @board = FifteenPuzzleSolver::Board.new([1, 2, 3, 4, 5, 6, 7, 0, 8], 3, 3)
   end
 
   it "calculate board dimensions" do
@@ -55,7 +55,7 @@ RSpec.describe "Board" do
   it "check if the board is valid" do
     expect(@board.valid?).to be_falsey
 
-    valid_board = FifteenPuzzleSolver::Board.new([*1..8] + [0], 3)
+    valid_board = FifteenPuzzleSolver::Board.new([*1..8] + [0], 3, 3)
     expect(valid_board.valid?).to be_truthy
   end
 
