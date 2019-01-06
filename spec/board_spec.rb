@@ -71,4 +71,8 @@ RSpec.describe "Board" do
     @board.move("left")
     expect(@board.invalid_blocks_distance).to be(2)
   end
+
+  it "returns valid difference number" do
+    expect(@board.difference).to be(1)
+  end
 end
