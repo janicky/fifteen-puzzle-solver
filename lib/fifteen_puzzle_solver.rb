@@ -18,6 +18,10 @@ class FifteenPuzzleSolver
     unless @height
       raise Exception.new("Height can't be empty")
     end
+    # Validate if blocks are integers
+    if !@blocks.is_a?(Array) || !@blocks.all? { |e| e.is_a?(Integer) }
+      raise Exception.new("Blocks must be valid array of integers")
+    end
     # Validate blocks
     if !@blocks || @blocks.count != @width * @height
       raise Exception.new("Invalid blocks count (expect #{@width * @height}, got #{@blocks.count})")
