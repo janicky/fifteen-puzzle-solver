@@ -6,6 +6,28 @@ class FifteenPuzzleSolver
     end
 
     validate
+
+    # Initialize board instance
+    board = Board.new(@blocks, @width, @height)
+
+    case @algorithm
+    when "bfs"
+      @solver = BreadthFirstSearch.new(board, @acronym)
+    when "dfs"
+      @solver = DepthFirstSearch.new(board, @acronym)
+    when "astr"
+      @solver = AStarSearch.new(board, @acronym)
+    end
+  end
+
+  def perform
+    @solver.perform
+  end
+
+  def result
+    raise Exception.new("First perform algorithm") if @solver.status == "ready"
+
+    @solver
   end
 
   private
