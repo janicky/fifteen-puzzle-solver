@@ -30,8 +30,12 @@ RSpec.describe "FifteenPuzzleSolver" do
   it "raise exception when invalid blocks count" do
     expect { FifteenPuzzleSolver.new(blocks: @blocks, width: 1, height: 1) }
       .to raise_error(Exception, "Invalid blocks count (should match to height and width)")
+  end
 
-    FifteenPuzzleSolver.new(blocks: @blocks, width: 4, height: 2)
-    FifteenPuzzleSolver.new(blocks: @blocks, width: 2, height: 4)
+  it "raise exception when empty or invalid algorithm" do
+    expect { FifteenPuzzleSolver.new(blocks: @blocks, width: 4, height: 2) }
+      .to raise_error(Exception, "Empty or invalid algorithm")
+    expect { FifteenPuzzleSolver.new(blocks: @blocks, width: 4, height: 2, algorithm: "xxx") }
+      .to raise_error(Exception, "Empty or invalid algorithm")
   end
 end

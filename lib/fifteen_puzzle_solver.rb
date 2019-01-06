@@ -1,5 +1,6 @@
 class FifteenPuzzleSolver
   def initialize(params)
+    # blocks, width, height, algorithm, strategy, acronym
     params.each do |key, value|
       instance_variable_set("@#{key}".to_sym, value)
     end
@@ -25,6 +26,10 @@ class FifteenPuzzleSolver
     # Validate blocks
     if !@blocks || @blocks.count != @width * @height
       raise Exception.new("Invalid blocks count (should match to height and width)")
+    end
+    # Validate algorithm
+    if !defined?(@algorithm) || !%w[bfs dfs astr].include?(@algorithm)
+      raise Exception.new("Empty or invalid algorithm")
     end
   end
 end
