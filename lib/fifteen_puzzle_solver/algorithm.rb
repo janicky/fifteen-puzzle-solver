@@ -18,6 +18,7 @@ class FifteenPuzzleSolver::Algorithm
     @status = "failed" unless @status == "solved"
     @visited_nodes = @explored.count
     @processed_nodes = @frontier.length
+    @explored.clear
   end
 
   private

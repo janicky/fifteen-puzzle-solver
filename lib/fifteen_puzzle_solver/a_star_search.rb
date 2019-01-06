@@ -23,6 +23,7 @@ class FifteenPuzzleSolver::AStarSearch < FifteenPuzzleSolver::Algorithm
       @explored << node.state
     end
     save
+    @frontier.clear
   end
 
   private
