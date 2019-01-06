@@ -96,8 +96,12 @@ class FifteenPuzzleSolver::Board
 
   # Return difference between blocks and valid system
   def difference
-    valid_system = [*1..(@width * @height)] + [0]
-    (@blocks - valid_system).count
+    difference = 0
+    valid_system = [*1...(@width * @height)] + [0]
+    @blocks.each_with_index do |block, index|
+      difference += 1 unless block == valid_system[index]
+    end
+    difference
   end
 
   private
