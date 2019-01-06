@@ -31,9 +31,13 @@ class FifteenPuzzleSolver
     if !defined?(@algorithm) || !%w[bfs dfs astr].include?(@algorithm)
       raise Exception.new("Empty or invalid algorithm")
     end
-    # Validate acronym
-    if !defined?(@acronym) || !(%w[manh hamm].include?(@acronym) || !!(/^[udlr]+$/is =~ @acronym))
-      raise Exception.new("Invalid acronym (available: manh, hamm or letters [u,d,l,r])")
+    # Valid acronym for bfs or dfs algorithm
+    if %w[bfs dfs].include?(@algorithm) && !(/^[udlr]+$/is =~ @acronym)
+      raise Exception.new("Invalid acronym for bfs or dfs algorithm")
+    end
+    # Valid acronym for astr algorithm
+    if @algorithm == "astr" && !%w[manh hamm].include?(@acronym)
+      raise Exception.new("Invalid acronym for astr algorithm")
     end
   end
 end
