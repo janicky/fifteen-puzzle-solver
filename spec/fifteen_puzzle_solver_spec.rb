@@ -38,4 +38,11 @@ RSpec.describe "FifteenPuzzleSolver" do
     expect { FifteenPuzzleSolver.new(blocks: @blocks, width: 4, height: 2, algorithm: "xxx") }
       .to raise_error(Exception, "Empty or invalid algorithm")
   end
+
+  it "raise exception when invalid acronym" do
+    message = "Invalid acronym (available: manh, hamm or letters [u,d,l,r])"
+    params = { blocks: @blocks, width: 4, height: 2, algorithm: "bfs", acronym: "y" }
+    expect { FifteenPuzzleSolver.new(params) }
+      .to raise_error(Exception, message)
+  end
 end

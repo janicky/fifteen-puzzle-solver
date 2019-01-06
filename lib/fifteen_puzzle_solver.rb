@@ -1,6 +1,6 @@
 class FifteenPuzzleSolver
   def initialize(params)
-    # blocks, width, height, algorithm, strategy, acronym
+    # blocks, width, height, algorithm, acronym
     params.each do |key, value|
       instance_variable_set("@#{key}".to_sym, value)
     end
@@ -20,7 +20,7 @@ class FifteenPuzzleSolver
       raise Exception.new("Height can't be empty")
     end
     # Validate if blocks are integers
-    if !@blocks.is_a?(Array) || !@blocks.all? { |e| e.is_a?(Integer) }
+    if !defined?(@blocks) || !@blocks.is_a?(Array) || !@blocks.all? { |e| e.is_a?(Integer) }
       raise Exception.new("Blocks must be valid array of integers")
     end
     # Validate blocks
@@ -30,6 +30,10 @@ class FifteenPuzzleSolver
     # Validate algorithm
     if !defined?(@algorithm) || !%w[bfs dfs astr].include?(@algorithm)
       raise Exception.new("Empty or invalid algorithm")
+    end
+    # Validate acronym
+    if !defined?(@acronym) || !(%w[manh hamm].include?(@acronym) || !!(/^[udlr]+$/is =~ @acronym))
+      raise Exception.new("Invalid acronym (available: manh, hamm or letters [u,d,l,r])")
     end
   end
 end
