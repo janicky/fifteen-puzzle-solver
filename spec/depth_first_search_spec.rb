@@ -1,7 +1,7 @@
 require "fifteen_puzzle_solver"
 require_relative "../lib/fifteen_puzzle_solver/depth_first_search"
 
-RSpec.describe "BreadthFirstSearch" do
+RSpec.describe "DepthFirstSearch" do
   before do
     # 1 2 3
     # 4 0 6
