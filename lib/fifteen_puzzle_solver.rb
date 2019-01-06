@@ -22,6 +22,7 @@ class FifteenPuzzleSolver
 
   def perform
     @solver.perform
+    @solver.status
   end
 
   def result
@@ -65,3 +66,7 @@ class FifteenPuzzleSolver
 end
 
 require "fifteen_puzzle_solver/board"
+require "fifteen_puzzle_solver/node"
+require "fifteen_puzzle_solver/breadth_first_search"
+require "fifteen_puzzle_solver/depth_first_search"
+require "fifteen_puzzle_solver/a_star_search"
