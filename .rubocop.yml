@@ -529,7 +529,7 @@ Metrics/MethodLength:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#short-methods
   Enabled: true
   CountComments: true
-  Max: 20
+  Max: 30
   Exclude:
   - "spec/**/*"
 Metrics/ParameterLists:
