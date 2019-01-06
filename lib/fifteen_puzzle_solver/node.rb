@@ -23,7 +23,7 @@ class FifteenPuzzleSolver::Node
     when "manh"
       weight + @board.invalid_blocks_distance
     when "hamm"
-      
+      weight + @board.difference
     else
       1
     end
