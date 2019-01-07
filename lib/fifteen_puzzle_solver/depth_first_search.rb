@@ -16,7 +16,7 @@ class FifteenPuzzleSolver::DepthFirstSearch < FifteenPuzzleSolver::Algorithm
         break
       end
 
-      if @depth < 21
+      if @depth < 15
         node.board.neighbors(node, @acronym).reverse_each do |neighbor|
           @frontier << neighbor unless @explored.include?(neighbor.state)
         end

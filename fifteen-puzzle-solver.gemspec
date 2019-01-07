@@ -6,15 +6,7 @@ Gem::Specification.new do |s|
   s.description = "Fifteen Puzzle Solver - BFS, DFS, A*"
   s.authors     = ["Patryk Janicki", "Konrad Jachimstal"]
   s.email       = "kontakt.janicki@gmail.com"
-  s.files       = [
-    "lib/fifteen_puzzle_solver.rb",
-    "lib/fifteen_puzzle_solver/board.rb",
-    "lib/fifteen_puzzle_solver/algorithm.rb",
-    "lib/fifteen_puzzle_solver/node.rb",
-    "lib/fifteen_puzzle_solver/breadth_first_search.rb",
-    "lib/fifteen_puzzle_solver/depth_first_search.rb",
-    "lib/fifteen_puzzle_solver/a_star_search.rb",
-  ]
+  s.files       = Dir["lib/**/*.rb"]
   s.homepage    =
     "https://github.com/janicky/fifteen-puzzle-solver"
   s.license     = "MIT"
