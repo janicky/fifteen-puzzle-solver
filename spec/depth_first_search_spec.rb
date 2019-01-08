@@ -28,7 +28,7 @@ RSpec.describe "DepthFirstSearch" do
   end
 
   it "returns visited nodes and processed nodes" do
-    expect(@dfs.visited_nodes).to be(14)
-    expect(@dfs.processed_nodes).to be(17)
+    expect(@dfs.visited_nodes).to be(10)
+    expect(@dfs.processed_nodes).to be(12)
   end
 end

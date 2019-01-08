@@ -5,6 +5,8 @@ class FifteenPuzzleSolver::Algorithm
     @board = board
     @acronym = acronym
     @status = "ready"
+    @depth = 0
+    @max_depth = 0
   end
 
   protected
