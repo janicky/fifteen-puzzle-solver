@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = "fifteen-puzzle-solver"
-  s.version     = "0.1.0"
-  s.date        = "2019-01-06"
+  s.version     = "0.1.1"
+  s.date        = "2019-01-08"
   s.summary     = "Fifteen Puzzle Solver"
   s.description = "Fifteen Puzzle Solver - BFS, DFS, A*"
   s.authors     = ["Patryk Janicki", "Konrad Jachimstal"]
