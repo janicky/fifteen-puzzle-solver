@@ -10,6 +10,7 @@ class FifteenPuzzleSolver::BreadthFirstSearch < FifteenPuzzleSolver::Algorithm
     while !@frontier.empty?
       node = @frontier.pop
       @depth = node.depth
+      @max_depth = @depth if @depth > @max_depth
 
       if node.board.valid?
         @solution = node.path

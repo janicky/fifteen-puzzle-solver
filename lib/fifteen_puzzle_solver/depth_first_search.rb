@@ -9,6 +9,7 @@ class FifteenPuzzleSolver::DepthFirstSearch < FifteenPuzzleSolver::Algorithm
     while !@frontier.empty?
       node = @frontier.pop
       @depth = node.depth
+      @max_depth = @depth if @depth > @max_depth
 
       if node.board.valid?
         @solution = node.path
@@ -16,7 +17,7 @@ class FifteenPuzzleSolver::DepthFirstSearch < FifteenPuzzleSolver::Algorithm
         break
       end
 
-      if @depth < 15
+      if @depth <= 20
         node.board.neighbors(node, @acronym).reverse_each do |neighbor|
           @frontier << neighbor unless @explored.include?(neighbor.state)
         end

@@ -1,5 +1,5 @@
 class FifteenPuzzleSolver::Algorithm
-  attr_reader :status, :depth, :solution, :elapsed_time, :visited_nodes, :processed_nodes
+  attr_reader :status, :depth, :max_depth, :solution, :elapsed_time, :visited_nodes, :processed_nodes
 
   def initialize(board, acronym)
     @board = board
