@@ -1,3 +1,5 @@
+require "set"
+
 class FifteenPuzzleSolver::Algorithm
   attr_reader :status, :depth, :max_depth, :solution, :elapsed_time, :visited_nodes, :processed_nodes
 
