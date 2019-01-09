@@ -4,7 +4,6 @@ class FifteenPuzzleSolver::BreadthFirstSearch < FifteenPuzzleSolver::Algorithm
   def perform
     @frontier = Queue.new
     @frontier.push(FifteenPuzzleSolver::Node.new(nil, @board, nil))
-    @explored = []
 
     start
     while !@frontier.empty?

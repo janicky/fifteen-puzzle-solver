@@ -28,7 +28,7 @@ RSpec.describe "BreadthFirstSearch" do
   end
 
   it "returns visited nodes and processed nodes" do
-    expect(@bfs.visited_nodes).to be(8)
+    expect(@bfs.visited_nodes).to be(7)
     expect(@bfs.processed_nodes).to be(12)
   end
 end

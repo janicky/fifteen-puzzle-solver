@@ -7,6 +7,7 @@ class FifteenPuzzleSolver::Algorithm
     @status = "ready"
     @depth = 0
     @max_depth = 0
+    @explored = Set.new
   end
 
   protected
