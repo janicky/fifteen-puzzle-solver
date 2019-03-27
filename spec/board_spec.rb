@@ -73,6 +73,6 @@ RSpec.describe "Board" do
   end
 
   it "returns valid difference number" do
-    expect(@board.difference).to be(2)
+    expect(@board.difference).to be(1)
   end
 end

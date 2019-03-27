@@ -29,6 +29,6 @@ RSpec.describe "AStarSearch" do
 
   it "returns visited nodes and processed nodes" do
     expect(@astr.visited_nodes).to be(5)
-    expect(@astr.processed_nodes).to be(10)
+    expect(@astr.processed_nodes).to be(6)
   end
 end
